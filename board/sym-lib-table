@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name "OneChipTerminal-rescue")(type "Legacy")(uri "${KIPRJMOD}/OneChipTerminal-rescue.lib")(options "")(descr ""))
+  (lib (name "bluepill")(type "Legacy")(uri "${KIPRJMOD}/bluepill.lib")(options "")(descr ""))
+  (lib (name "mini-din_6pins_ver4")(type "Legacy")(uri "${KIPRJMOD}/mini-din_6pins_ver4.lib")(options "")(descr ""))
+  (lib (name "rcajack")(type "Legacy")(uri "${KIPRJMOD}/rcajack.lib")(options "")(descr ""))
+)
