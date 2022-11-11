@@ -16,7 +16,7 @@
 #include <TNTSCharfont.h>
 #include <SPI.h>
 
-#define INDATASEG  // define for STM32F103C8T6, undefine for CS32F103C8T6
+#undef INDATASEG  // define for STM32F103C8T6, undefine for CS32F103C8T6
 
 #define PWM_CLK PA1         // 同期信号出力ピン(PWM)
 #define DAT PA7             // 映像信号出力ピン
@@ -118,6 +118,9 @@ void DMA1_CH3_handle() {
   while(!(_pspi_dev->regs->SR & SPI_SR_TXE));
   while(_pspi_dev->regs->SR & SPI_SR_BSY);
   _pspi_dev->regs->DR = 0; 
+#ifndef INDATASEG
+  *_CCR_bb = 0;
+#endif
   if (_dma_on) 
     SPI_dmaSend();
 }
@@ -194,7 +197,7 @@ void handle_vout()
  	 _dma_on = 0;
   }
 #ifdef INDATASEG
-   TIMER2->regs.gen->SR &= ~(TIMER_SR_TIF|TIMER_SR_CC4IF|TIMER_SR_CC3IF|TIMER_SR_CC2IF|TIMER_SR_CC1IF|TIMER_SR_UIF);
+  TIMER2->regs.gen->SR &= ~(TIMER_SR_TIF|TIMER_SR_CC4IF|TIMER_SR_CC3IF|TIMER_SR_CC2IF|TIMER_SR_CC1IF|TIMER_SR_UIF);
 #endif
 }
 }

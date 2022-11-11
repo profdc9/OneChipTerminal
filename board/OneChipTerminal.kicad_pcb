@@ -1126,7 +1126,7 @@
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 84e1981c-0c6c-4b3d-adbf-5c578715647d)
     )
-    (fp_text value "82R" (at 3.81 2.37) (layer "F.Fab")
+    (fp_text value "NC" (at 3.81 2.37) (layer "F.Fab")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp e65c8daa-8f1e-4d12-93c8-1ca953fdce68)
     )
